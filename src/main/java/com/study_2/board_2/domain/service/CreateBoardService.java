@@ -29,5 +29,7 @@ public class CreateBoardService {
         // dto에서 변환된 board객체를 사용하여 DB에 새 행을 추가-->service에서 dto를 entity로 바꿔주는 것
 
     }
+    //게시글 상세 조회
+
 
 }
