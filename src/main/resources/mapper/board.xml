@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper  namespace="com.study_2.board_2.global.mapper.BoardMapper">
+
+    <insert id="createBoard">
+        <!-- id : 서비스에서 호출할 때 사용할 메서드 이름과 일치해야 함. (boardMapper.createBoard(req.of());)!-->
+        <!--xml파일은 sql과 연결되기 때문에 sql 파일에 있는 변수 명과 일치시켜야 함!-->
+        insert into board(title, content, author, created_date, updated_date)
+        values(#{title}, #{content}, #{author}, #{created_date}, #{updated_date})
+
+    </insert>
+</mapper>
