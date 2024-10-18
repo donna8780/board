@@ -31,4 +31,12 @@
         where id = #{id}
     </update>
 
+    <select id="getTotalPosts" resultType="Integer">
+        select count(*) from board
+    </select> <!--총 게시글 수를 세는 쿼리!-->
+
+    <select id="getBoardListPagination" resultType="com.study_2.board_2.domain.entity.Board">
+        select * from board order by id desc limit #{pageSize} offset #{offset}
+    </select>
+
 </mapper>

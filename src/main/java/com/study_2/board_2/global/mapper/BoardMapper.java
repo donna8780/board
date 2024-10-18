@@ -2,6 +2,7 @@ package com.study_2.board_2.global.mapper;
 
 import com.study_2.board_2.domain.entity.Board;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -22,5 +23,11 @@ public interface BoardMapper {
 
     //게시글 삭제void - 아이디 선택해서 게시물 하나 삭제하니까 id가 매개변수로
     void deleteBoard(Long id);
+
+    //총 게시글 수 (int)
+    int getTotalPosts();
+
+    //게시글 페이징 (서비스층에서 dto로 변환 해주려고 반환 타입을 List<Board>로 함)
+    List<Board> getBoardListPagination(int pageSize, int offset);
 
 }

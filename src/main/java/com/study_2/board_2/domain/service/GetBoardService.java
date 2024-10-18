@@ -40,7 +40,7 @@ public class GetBoardService {
                 //map은 스트림의 각 요소로 반환할 때 사용
                 //board를 of로 변환
 
-                .collect(Collectors.toList());
+                .toList();
         //반환한 것들을 List형태로 주워담아서
         //결국 List<GetBoardRespDto>가 된다.
     }
