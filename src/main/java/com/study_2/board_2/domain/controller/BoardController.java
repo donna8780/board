@@ -2,6 +2,7 @@ package com.study_2.board_2.domain.controller;
 
 import com.study_2.board_2.domain.dto.req.CreateBoardReqDto;
 import com.study_2.board_2.domain.service.CreateBoardService;
+import com.study_2.board_2.domain.service.DeleteBoardService;
 import com.study_2.board_2.domain.service.GetBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class BoardController {
     private final CreateBoardService createBoardService;
     private final GetBoardService getBoardService;
-
+    private final DeleteBoardService deleteBoardService;
 
     //게시글 생성(POST)
     //RequestBody를 사용하면 본문에서 json데이터를 읽어 와서 지정한 dto 객체(CreateBoardDto)로 자동 변환해 줌
@@ -33,8 +34,17 @@ public class BoardController {
 
     }
     //게시글 목록 조회(GET)
-@GetMapping("/list")
+    @GetMapping("/list")
     public ResponseEntity<?> getBoardList(){
         return ResponseEntity.ok(getBoardService.getBoardList());
 }
+
+    //게시글 삭제(DELETE)
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteBoard(@PathVariable Long id){
+
+        deleteBoardService.DeleteBoard(id);
+
+        return ResponseEntity.ok().body("삭제");
+    }
 }
